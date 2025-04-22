@@ -1,0 +1,58 @@
+body {
+    background-color: #f1e8ff;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    color: #542f7c;
+    padding: 2rem;
+}
+
+/* Headings */
+h1, h2, h3 {
+    text-align: center;
+}
+
+/* Links */
+a {
+    color: #6b4b9c;
+}
+
+/* Gallery styling */
+.photo-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Individual photo items */
+.photo-item {
+    max-width: 250px;
+    text-align: center;
+}
+
+/* Example styled divs for layout */
+.about {
+    background-color: #fff;
+    padding: 20px;
+    margin: 2rem auto;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.favorite-things {
+    background-color: #e7d2ff;
+    padding: 20px;
+    margin: 2rem auto;
+    max-width: 600px;
+    border: 1px solid #c3a6f0;
+    border-radius: 10px;
+}
+
+.contact {
+    background-color: #f5f0ff;
+    padding: 1rem;
+    margin-top: 3rem;
+    text-align: center;
+    border-top: 2px solid #6b4b9c}

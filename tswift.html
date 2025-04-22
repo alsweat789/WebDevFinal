@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mood Matcher — Taylor's Version</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', cursive, sans-serif;
+      background: linear-gradient(to bottom right, #fddde6, #e0bbec);
+      text-align: center;
+      padding: 2rem;
+      color: #4b2354;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .mood-buttons button {
+      background-color: #fff;
+      border: 2px solid #d291bc;
+      border-radius: 25px;
+      padding: 0.5rem 1.5rem;
+      margin: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+    .mood-buttons button:hover {
+      background-color: #f3c5e0;
+    }
+    .result {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      background-color: #fff4fa;
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: inline-block;
+    }
+    a {
+      color: #b25ca1;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎤 Taylor Swift Mood Matcher 💖</h1>
+  <p>Pick your mood, and get a perfect Swiftie anthem!</p>
+
+  <div class="mood-buttons">
+    <button onclick="matchMood('heartbroken')">💔 Heartbroken</button>
+    <button onclick="matchMood('empowered')">💃 Empowered</button>
+    <button onclick="matchMood('nostalgic')">📸 Nostalgic</button>
+    <button onclick="matchMood('daydreamy')">🌈 Daydreamy</button>
+    <button onclick="matchMood('revenge')">🔥 Vengeful</button>
+  </div>
+
+  <div class="result" id="result"></div>
+
+  <script>
+    const moods = {
+      heartbroken: [
+        { emoji: '💔', lyric: 'I remember it all too well.', song: 'All Too Well', link: 'https://www.youtube.com/watch?v=tollGa3S0o8' },
+        { emoji: '😢', lyric: 'You call me up again just to break me like a promise.', song: 'All Too Well', link: 'https://www.youtube.com/watch?v=tollGa3S0o8' },
+        { emoji: '🥀', lyric: 'This is me swallowing my pride...', song: 'Back to December', link: 'https://www.youtube.com/watch?v=QUwxKWT6m7U' }
+      ],
+      empowered: [
+        { emoji: '💃', lyric: 'I shake it off!', song: 'Shake It Off', link: 'https://www.youtube.com/watch?v=nfWlot6h_JM' },
+        { emoji: '👑', lyric: 'Darling I’m a nightmare dressed like a daydream.', song: 'Blank Space', link: 'https://www.youtube.com/watch?v=e-ORhEE9VVg' },
+        { emoji: '🔥', lyric: 'I’m the problem, it’s me.', song: 'Anti-Hero', link: 'https://www.youtube.com/watch?v=b1kbLwvqugk' }
+      ],
+      nostalgic: [
+        { emoji: '📸', lyric: 'Do you remember, we were sitting there by the water?', song: 'Mine', link: 'https://www.youtube.com/watch?v=XPBwXKgDTdE' },
+        { emoji: '🐉', lyric: 'Long live all the mountains we moved.', song: 'Long Live', link: 'https://www.youtube.com/watch?v=8NqD5FEMf9E' },
+        { emoji: '🌅', lyric: 'This love is glowing in the dark.', song: 'This Love', link: 'https://www.youtube.com/watch?v=w2CELiObPeQ' }
+      ],
+      daydreamy: [
+        { emoji: '🌈', lyric: 'You are the best thing that’s ever been mine.', song: 'Mine', link: 'https://www.youtube.com/watch?v=XPBwXKgDTdE' },
+        { emoji: '🦋', lyric: 'Loving him is like driving a new Maserati down a dead-end street.', song: 'Red', link: 'https://www.youtube.com/watch?v=Zlot0i3Zykw' },
+        { emoji: '🌸', lyric: 'You belong with me.', song: 'You Belong With Me', link: 'https://www.youtube.com/watch?v=VuNIsY6JdUw' }
+      ],
+      revenge: [
+        { emoji: '🔥', lyric: 'I don’t trust nobody and nobody trusts me.', song: 'Look What You Made Me Do', link: 'https://www.youtube.com/watch?v=3tmd-ClpJxA' },
+        { emoji: '🐍', lyric: 'Honey, I rose up from the dead, I do it all the time.', song: 'Look What You Made Me Do', link: 'https://www.youtube.com/watch?v=3tmd-ClpJxA' },
+        { emoji: '⚔️', lyric: 'The old Taylor can’t come to the phone right now.', song: 'Look What You Made Me Do', link: 'https://www.youtube.com/watch?v=3tmd-ClpJxA' }
+      ]
+    };
+
+    function matchMood(mood) {
+      const moodSet = moods[mood];
+      const match = moodSet[Math.floor(Math.random() * moodSet.length)];
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerHTML = `
+        <div>${match.emoji}</div>
+        <p><em>"${match.lyric}"</em></p>
+        <p><strong>🎵 <a href="${match.link}" target="_blank">${match.song}</a></strong></p>
+      `;
+    }
+  </script>
+</body>
+</html>
